@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>グラフ</title>
+  </head>
+  <body>
+    <h1>消費カロリー</h1>
+    <img src="data:image/png;base64,{{ chart | safe }}">
+  </body>
+  </html>
