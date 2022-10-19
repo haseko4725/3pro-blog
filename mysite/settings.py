@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
 
 # Application definition
 
@@ -38,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
-    'mtplt_app.apps.MtpltAppConfig',
 ]
 
 MIDDLEWARE = [
