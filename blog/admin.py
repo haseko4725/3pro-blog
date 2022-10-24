@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Fitnessgraph, Post
+from .models import Fitnessgraph
 
 admin.site.register(Fitnessgraph)
