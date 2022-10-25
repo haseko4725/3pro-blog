@@ -17,7 +17,7 @@ class Fitnessgraph(ListView):
 class Fitnessform(FormView):
     template_name = 'blog/Fitnessform.html'
     form_class = Fitnessform
-    success_url = '/'  # リダイレクト先URL
+    success_url = 'blog/Fitnessform.html'  # リダイレクト先URL
 
     def form_valid(self, form):
         form.save()  # 保存処理など
