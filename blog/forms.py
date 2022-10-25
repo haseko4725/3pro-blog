@@ -1,7 +1,7 @@
 from django import forms
 
-class SelectQuestionForm(forms.Form):
-    answers = forms.fields.ChoiceField(
+class Fitnessform(forms.Form):
+    active = forms.fields.ChoiceField(
         choices = (
             ('',''),
             (3.0, 'バレーボール'),
@@ -17,3 +17,7 @@ class SelectQuestionForm(forms.Form):
         required=True,
         widget=forms.widgets.Select()
     )
+
+    time = forms.IntegerField(label="時間")
+    day = forms.TimeField("日付")
+

@@ -8,14 +8,10 @@
   </head>
   <body>
     <h1>今日の消費カロリー</h1>
-    <select name="運動" id="active">
-        <option value="7.0">ジョギング</option>
-        <option value="11.0">水泳</option>
-        <option value="4.5">バドミントン</option>
-        <option value="8.0">サイクリング</option>
-    </select>
-    <form>
-      <input type="number">
+    <form class="" action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" name="submit">送信</button>
     </form>
   </body>
   </html>
