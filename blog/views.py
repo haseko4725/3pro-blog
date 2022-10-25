@@ -4,8 +4,6 @@ from django.views.generic import ListView
 from django.views.generic import TemplateView
 from . import forms
 
-from blog.forms import Fitnessform
-
 
 class Fitnessgraph(ListView):
     queryset = Fitnessgraph.objects.all()
