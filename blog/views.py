@@ -10,7 +10,8 @@ from .forms import Fitnessform
 
 class Fitnessgraph(ListView):
     queryset = Fitnessgraph.objects.all()
-    template_name = 'Fitnessgraph'
+    context_object_name = 'Fitnessgraph'
+    template_name = 'Fitnessgraph.html'
     model = Fitnessgraph
 
 
