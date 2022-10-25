@@ -19,5 +19,5 @@ class Fitnessform(forms.Form):
     )
 
     time = forms.IntegerField(label="時間")
-    day = forms.TimeField("日付")
+    
 
