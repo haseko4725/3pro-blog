@@ -1,4 +1,8 @@
 from django import forms
+from numpy import save
+
+from blog.models import Fitnessgraph
+
 
 class Fitnessform(forms.Form):
     active = forms.fields.ChoiceField(
@@ -19,5 +23,10 @@ class Fitnessform(forms.Form):
     )
 
     time = forms.IntegerField(label="時間")
+    day = forms.DateField(label="日付")
     
+    def save(self):
+        data = self.cleaned_data
+        post = Fitnessgraph(active = data['active'])
+        post.save()
 

@@ -8,7 +8,14 @@
   </head>
   <body>
     <h1>今日の消費カロリー</h1>
-    <form class="" action="" method="post">
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit" name="submit">送信</button>
