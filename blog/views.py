@@ -5,7 +5,7 @@ from django.views.generic.edit import FormView
 from .forms import Fitnessform
 from django.contrib import messages
 
-from blog.forms import TestForm
+from blog.forms import Fitnessform
 
 
 class Fitnessgraph(ListView):
@@ -14,9 +14,9 @@ class Fitnessgraph(ListView):
     template_name = 'blog/Fitnessgraph.html'
     model = Fitnessgraph
 
-class TestView(FormView):
+class Fitnessform(FormView):
     template_name = 'blog/Fitnessform.html'
-    form_class = TestForm
+    form_class = Fitnessform
     success_url = 'blog/Firtstgraph.html'  # リダイレクト先URL
 
     def form_valid(self, form):
