@@ -8,16 +8,10 @@
   </head>
   <body>
     <h1>今日の消費カロリー</h1>
-    {% if messages %}
-    <ul class="messages">
-      {% for message in messages %}
-      <li {% if message.tags %} class = "{{ message.tags }}"{% endif %}>{{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    <form method="post">
-      {% csrf_token %}
+    <p>{{ Message }}</p>
+    <form action = "{% url 'Fitnessform' %}" method="post">
       {{ form.as_p }}
+      {% csrf_token %}
       <button type="submit" name="submit">送信</button>
     </form>
   </body>

@@ -1,17 +1,22 @@
+from dataclasses import field
+from .models import *
 from django import forms
-from numpy import save
+
 
 from blog.models import Fitnessgraph
 
 
-class Fitnessform(forms.Form):
-    active = forms.CharField(max_length = 100, label="active")
+class Contact_Form(forms.ModelForm):
 
-    time = forms.IntegerField(label="time")
-    day = forms.DateField(label="day")
-    
-    def save(self):
-        data = self.cleaned_data
-        post = Fitnessgraph(active = data['active'], time = data['time'], day=data['day'])
-        post.save()
+    class Meta():
+        #①モデルクラスを指定
+        model = Fitnessgraph
 
+        #②表示するモデルクラスのフィールドを定義
+        fields = ('active','time','day')
+
+        #③表示ラベルを定義
+        labels = {'active':"運動名",
+                  'time':"時間",
+                  'day':"日付",
+        }

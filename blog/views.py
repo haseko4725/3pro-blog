@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from .models import Fitnessgraph
 from django.views.generic import ListView
-from django.views.generic.edit import FormView
-from .forms import Fitnessform
-from django.contrib import messages
+from django.views.generic import TemplateView
+from . import forms
 
 from blog.forms import Fitnessform
 
@@ -14,12 +13,26 @@ class Fitnessgraph(ListView):
     template_name = 'blog/Fitnessgraph.html'
     model = Fitnessgraph
 
-class Fitnessform(FormView):
-    template_name = 'blog/Fitnessform.html'
-    form_class = Fitnessform
-    success_url = 'blog/Fitnessform.html'  # リダイレクト先URL
+class Fitnessform(TemplateView):
 
-    def form_valid(self, form):
-        form.save()  # 保存処理など
-        messages.add_message(self.request, messages.SUCCESS, '登録しました！')  # メッセージ出力
-        return super().form_valid(form)
+    # 初期変数定義
+    def __init__(self):
+        self.params = {"Message":"情報を入力してください。",
+                       "form":forms.Contact_Form(),
+                       }
+
+    # GET時の処理を記載
+    def get(self,request):
+        return render(request, "blog/Fitnessform.html",context=self.params)
+
+    # POST時の処理を記載
+    def post(self,request):
+        if request.method == "POST":
+            self.params["Fitnessform"] = forms.Contact_Form(request.POST)
+            
+            # フォーム入力が有効な場合
+            if self.params["Fitnessform"].is_valid():
+                self.params["Message"] = "入力情報が送信されました。"
+
+        return render(request, "blog/Fitnessform.html",context=self.params)
+    
