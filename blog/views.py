@@ -16,7 +16,7 @@ class Fitnessform(TemplateView):
     # 初期変数定義
     def __init__(self):
         self.params = {"Message":"情報を入力してください。",
-                       "Fitnessform":forms.Fitnessform(),
+                       "form":forms.Fitnessform(),
                        }
 
     # GET時の処理を記載
@@ -26,10 +26,11 @@ class Fitnessform(TemplateView):
     # POST時の処理を記載
     def post(self,request):
         if request.method == "POST":
-            self.params["Fitnessform"] = forms.Fitnessform(request.POST)
+            self.params["form"] = forms.Fitnessform(request.POST)
             
             # フォーム入力が有効な場合
-            if self.params["Fitnessform"].is_valid():
+            if self.params["form"].is_valid():
+                self.params["form"].save(commit=True)
                 self.params["Message"] = "入力情報が送信されました。"
 
         return render(request, "blog/Fitnessform.html",context=self.params)
