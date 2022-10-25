@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1>今日の消費カロリー</h1>
+    <a href="{% url 'Fitnessgraph' %}">戻る</a>
     <p>{{ Message }}</p>
     <form action = "{% url 'Fitnessform' %}" method="post">
       {{ form.as_p }}
