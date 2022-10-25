@@ -11,7 +11,7 @@ from .forms import Fitnessform
 class Fitnessgraph(ListView):
     queryset = Fitnessgraph.objects.all()
     context_object_name = 'Fitnessgraph'
-    template_name = 'Fitnessgraph.html'
+    template_name = 'blog/Fitnessgraph.html'
     model = Fitnessgraph
 
 
