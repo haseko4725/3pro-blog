@@ -12,7 +12,7 @@
     <form action = "{% url 'Fitnessform' %}" method="post">
       {{ form.as_p }}
       {% csrf_token %}
-      <button type="submit" name="submit">送信</button>
+      <input type="submit" value="送信">
     </form>
   </body>
   </html>
