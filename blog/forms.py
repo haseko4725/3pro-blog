@@ -12,6 +12,6 @@ class Fitnessform(forms.Form):
     
     def save(self):
         data = self.cleaned_data
-        post = Fitnessgraph(active = data['active'], time = data['time'])
+        post = Fitnessgraph(active = data['active'], time = data['time'], day=data['day'])
         post.save()
 

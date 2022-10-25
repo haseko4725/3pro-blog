@@ -6,4 +6,4 @@ class Fitnessgraph(models.Model):
     day = models.DateField()
 
     def __str__(self):
-        return self.active + ',' +str(self.time) 
+        return self.active + ',' + self.time + ',' + self.day
