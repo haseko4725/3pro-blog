@@ -18,7 +18,7 @@ class Fitnessform(TemplateView):
     # 初期変数定義
     def __init__(self):
         self.params = {"Message":"情報を入力してください。",
-                       "form":forms.Contact_Form(),
+                       "Fitnessform":forms.Contact_Form(),
                        }
 
     # GET時の処理を記載
