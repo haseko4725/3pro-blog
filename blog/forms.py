@@ -1,12 +1,8 @@
-from dataclasses import field
 from .models import *
 from django import forms
 
 
-from blog.models import Fitnessgraph
-
-
-class Contact_Form(forms.ModelForm):
+class Fitnessform(forms.ModelForm):
 
     class Meta():
         #①モデルクラスを指定

@@ -9,7 +9,7 @@
   <body>
     <h1>今日の消費カロリー</h1>
     <p>{{ Message }}</p>
-    <form action = "{% url 'Fitnessform' %}" method="post">
+    <form action = "{% url 'Fitnessform' %}" method="POST">
       {{ form.as_p }}
       {% csrf_token %}
       <input type="submit" value="送信">
