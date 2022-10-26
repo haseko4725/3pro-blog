@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 
 class Fitnessgraph(models.Model):
@@ -7,3 +8,7 @@ class Fitnessgraph(models.Model):
 
     def __str__(self):
         return self.active
+
+class Fitnesspulldown(models.Model):
+    active = models.CharField(max_length=100)
+    metz = models.FloatField(default=0)
