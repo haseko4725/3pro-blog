@@ -5,7 +5,7 @@ class Fitnesspulldown(models.Model):
     active = models.CharField(max_length=100,blank=True)
     metz = models.FloatField(default=0)
     def __str__(self):
-        return self.acive
+        return self.active
 
 class Fitnessgraph(models.Model):
     active = models.ForeignKey(Fitnesspulldown, on_delete=models.SET_NULL, null=True)
